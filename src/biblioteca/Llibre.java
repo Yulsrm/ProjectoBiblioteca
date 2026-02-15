@@ -1,3 +1,8 @@
+/**
+ * Representa un libro del sistema de gestion de biblioteca, conteniendo información
+ * sobre el titulo, autor, número de ejemplares y su precio.
+ */
+
 package biblioteca;
 
 public class Llibre {
@@ -6,6 +11,13 @@ public class Llibre {
     private int exemplars;
     private float preu;
 
+    /**
+     * Constructor de la clase Llibre.
+     * @param titol - Titulo del libro.
+     * @param autor - Autor del libro.
+     * @param exemplars - Número de ejemplares disponibles.
+     * @param preu - Precio del libro.
+     */
     public Llibre(String titol, String autor, int exemplars, float preu) {
         this.titol = titol;
         this.autor = autor;
@@ -13,6 +25,11 @@ public class Llibre {
         this.preu = preu;
     }
 
+    /**
+     * Método que presta una cantidad de ejemplares si hay disponibilidad.
+     * @param quantitat - Número de ejemplares a prestar.
+     * @throws Exception - Controla si no hay ejemplares disponibles.
+     */
     public void prestarLlibre(int quantitat) throws Exception {
         if (getExemplars() >= quantitat) {
             setExemplars(getExemplars() - quantitat);
@@ -22,11 +39,18 @@ public class Llibre {
         }
     }
 
+    /**
+     * Método que devuelve una cantidad de ejemplares al sistema.
+     * @param quantitat - Número de ejemplares a devolver.
+     */
     public void retornarLlibre(int quantitat) {
         setExemplars(getExemplars() + quantitat);
         System.out.println("S'han retornat " + quantitat + " exemplars.");
     }
 
+    /**
+     * Método que muestra los datos por pantalla.
+     */
     public void mostrarDades() {
         System.out.println("Títol: " + getTitol());
         System.out.println("Autor: " + getAutor());
